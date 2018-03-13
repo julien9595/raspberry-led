@@ -3,6 +3,10 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
+import {AngularFireModule} from 'angularfire2';
+import {environment} from '../environments/environment';
+import {FormsModule} from '@angular/forms';
+import {AngularFireDatabaseModule} from 'angularfire2/database';
 
 
 @NgModule({
@@ -10,7 +14,10 @@ import { AppComponent } from './app.component';
     AppComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule
   ],
   providers: [],
   bootstrap: [AppComponent]
