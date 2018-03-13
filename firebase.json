@@ -1,10 +1,19 @@
 {
-  "hosting": {
-    "public": "dist",
-    "ignore": [
-      "firebase.json",
-      "**/.*",
-      "**/node_modules/**"
-    ]
-  }
+	"hosting": {
+		"public": "apps",
+		"ignore": [
+			"firebase.json",
+			"**/.*",
+			"**/node_modules/**"
+		],
+		"rewrites": [ {
+			"source":"/raspberry-led/**",
+			"destination":"/raspberry-led/index.html"
+		},
+		{
+			"source":"/raspberry-sigfox/**",
+			"destination":"/raspberry-sigfox/index.html"			
+		}]
+
+	}
 }

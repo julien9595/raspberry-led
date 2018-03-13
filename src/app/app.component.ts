@@ -7,7 +7,7 @@ import {AngularFireDatabase} from 'angularfire2/database';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit {
   title = 'Raspberry led';
 
   isOn$: Observable<any>;
@@ -24,13 +24,12 @@ export class AppComponent implements OnInit{
 
   ngOnInit() {
     this.isOn$ = this.firebase.list('/led/white').snapshotChanges()
-      .map(res => {
-        return res.map(obj => {
+      .map(res => res.map(obj => {
           if (obj.key === 'isOn') {
             this.isLedOn = obj.payload.val();
           }
-            return null;
-          });
-      });
+          return null;
+        })
+      );
   }
 }
